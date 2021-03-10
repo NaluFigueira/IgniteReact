@@ -20,7 +20,7 @@
   </a>
 </p>
 
-![App Preview](https://github.com/NaluFigueira/IgniteReact/blob/master/Ignite.png)
+![App Preview](https://github.com/NaluFigueira/IgniteReact/blob/main/Ignite.png)
 
 
 <h2>Módulo 1 - GitHub Explorer</h2>
