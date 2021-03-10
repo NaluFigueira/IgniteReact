@@ -1,3 +1,5 @@
+![App Preview](https://github.com/NaluFigueira/IgniteReact/blob/main/Ignite.png)
+
 <h1 align="center">
   Ignite - ReactJS
 </h1>
@@ -20,7 +22,6 @@
   </a>
 </p>
 
-![App Preview](https://github.com/NaluFigueira/IgniteReact/blob/main/Ignite.png)
 
 
 <h2>Módulo 1 - GitHub Explorer</h2>
