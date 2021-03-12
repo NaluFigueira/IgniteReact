@@ -31,6 +31,14 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/, //Webpack should ignore node_modules folder
         use: 'babel-loader' //convert .jsx using babel-loader
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/, //Webpack should ignore node_modules folder
+        use: [
+          'style-loader',
+          'css-loader'
+        ] //convert .css using style-loader and css-loader
       }
     ]
   }
