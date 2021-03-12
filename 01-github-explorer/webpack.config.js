@@ -1,9 +1,11 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-  mode: 'development',
-  devtool: 'eval-source-map',
+  mode: isDevelopment ? 'development' : 'production',
+  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
    //allows error treatment to consider .jsx file instead of dist folder
   entry: path.resolve(__dirname, 'src','index.jsx'), //which is the input file?
   output: { //which is the input file?
