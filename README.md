@@ -38,7 +38,16 @@ npm install
 ```
 <p>Open the React app by opening index.html from dist folder.</p>
 
-<h3>Notes</h3>
+## :rocket: Technologies
+
+This project was developed with the following technologies:
+
+-  [ReactJS](https://reactjs.org/)
+-  [Babel](https://babeljs.io/)
+-  [Webpack](https://webpack.js.org/)
+-  [Sass](https://sass-lang.com/)
+
+## :pencil: Notes
 
 <ul>
   <li>
