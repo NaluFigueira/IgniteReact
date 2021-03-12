@@ -11,6 +11,9 @@ module.exports = {
   resolve: { 
     extensions: ['.js','.jsx'] //which extensions are considered?
   },
+  devServer: { //creates live server for webpack
+    contentBase: path.resolve(__dirname, 'public')
+  },
   plugins: [
     new HTMLWebpackPlugin({
       //which template file will generate index.html in dist folder, along

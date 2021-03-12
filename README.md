@@ -58,6 +58,15 @@ npm install
 
     yarn webpack
   </li>
+  <li>
+    You can run a live server for Webpack, that way Webpack will always run 
+    automatically when changes are detected in the project. To run the server 
+    use the command line:
+    <br />
+    <br />
+
+    yarn webpack serve
+  </li>
 </ul>
 
 Made with ♥ by Ana Figueira :wave: [Get in touch!](https://www.linkedin.com/in/ana-lu%C3%ADsa-chaves-figueira-38792218a/)
