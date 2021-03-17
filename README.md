@@ -76,6 +76,17 @@ This project was developed with the following technologies:
 
     yarn webpack serve
   </li>
+  
+  <li>
+    <strong>React's state immutability</strong>
+    <p>Immutability means that you can't change a variable's state. 
+    Therefore, a new value is created in memory every time you need to update 
+    that variable.</p> 
+    <p>React uses that to make the reconciliation process easier.
+    The reconciliation process compares the virtual DOM with a previous version
+    to reflect state changes.That way, there's a better control over changes in
+    your application.</p>    
+  </li>
 </ul>
 
 Made with ♥ by Ana Figueira :wave: [Get in touch!](https://www.linkedin.com/in/ana-lu%C3%ADsa-chaves-figueira-38792218a/)
