@@ -62,5 +62,3 @@ This project was developed with the following technologies:
     your application.</p>    
   </li>
 </ul>
-
-Made with ♥ by Ana Figueira :wave: [Get in touch!](https://www.linkedin.com/in/ana-lu%C3%ADsa-chaves-figueira-38792218a/)
