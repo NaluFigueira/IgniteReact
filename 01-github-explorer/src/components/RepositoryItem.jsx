@@ -1,12 +1,12 @@
 export function RepositoryItem({repository}) {
-  const {name, description, link} = repository;
+  const {name, description, html_url} = repository;
 
   return ( 
     <li>
-      <strong>{name ?? 'Default'}</strong>
+      <strong>{name}</strong>
       <p>{description}</p>
 
-      <a href={link}>
+      <a href={html_url}>
         Access repository
       </a>
     </li>

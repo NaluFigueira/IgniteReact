@@ -61,4 +61,16 @@ This project was developed with the following technologies:
     to reflect state changes.That way, there's a better control over changes in
     your application.</p>    
   </li>
+
+  <li>
+    <strong>React hooks</strong>
+    <ul>
+      <li>
+        <strong>useState</strong>: returns an array with the desired state and a method to create a new state.
+      </li>
+      <li>
+        <strong>useEffect</strong>: triggers a callback when one of the dependencies in the array has changed. If there are no dependencies, the callback is called once as soon as the component renders.
+      </li>
+    </ul>  
+  </li>
 </ul>
