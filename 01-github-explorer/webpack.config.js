@@ -8,13 +8,13 @@ module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   devtool: isDevelopment ? 'eval-source-map' : 'source-map',
    //allows error treatment to consider .jsx file instead of dist folder
-  entry: path.resolve(__dirname, 'src','index.jsx'), //which is the input file?
+  entry: path.resolve(__dirname, 'src','index.tsx'), //which is the input file?
   output: { //which is the input file?
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: { 
-    extensions: ['.js','.jsx'] //which extensions are considered?
+    extensions: ['.js','.jsx', '.ts', '.tsx'] //which extensions are considered?
   },
   devServer: { //creates live server for webpack
     contentBase: path.resolve(__dirname, 'public'),
@@ -31,7 +31,7 @@ module.exports = {
   module: {
     rules: [ //what Webpack should do?
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/, //Webpack should ignore node_modules folder
         use: {
           loader: 'babel-loader', //convert .jsx using babel-loader

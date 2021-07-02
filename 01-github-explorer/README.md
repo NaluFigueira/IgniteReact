@@ -73,4 +73,17 @@ This project was developed with the following technologies:
       </li>
     </ul>  
   </li>
+
+  <li>
+    <strong>Installing Typescript</strong>
+    
+    //Install dependency
+    yarn add typescript -D
+
+    //Initialize typescript in the project    
+    yarn tsc --init
+
+    //Add this dependency so Babel can understand typescript
+    yarn add @babel/preset-typescript
+  </li>
 </ul>
