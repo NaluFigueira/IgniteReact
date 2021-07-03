@@ -15,15 +15,43 @@ export function TaskList() {
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
   function handleCreateNewTask() {
-    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    if(newTaskTitle) {
+      let newTaskId = new Date().getTime();
+      setTasks([...tasks, {
+        id: newTaskId,
+        title: newTaskTitle,
+        isComplete: false,
+      }]);
+    }
   }
 
   function handleToggleTaskCompletion(id: number) {
-    // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    let taskIndex = tasks.findIndex(task => task.id === id);
+    updateTaskCompletion(taskIndex);
   }
 
-  function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+  function updateTaskCompletion(taskIndex: number) {
+    if(taskIndex > -1) {
+      let tasksCopy = [...tasks];
+      let task = tasksCopy[taskIndex];
+      tasksCopy[taskIndex] = {
+        ...task, isComplete: !task.isComplete
+      }
+      setTasks(tasksCopy);
+    }
+  }
+
+  function handleClickRemoveTaskButton(id: number) {
+    let taskIndex = tasks.findIndex(task => task.id === id);
+    removeTask(taskIndex);
+  }
+
+  function removeTask(taskIndex: number) {
+    if(taskIndex > -1) {
+      let tasksCopy = [...tasks];
+      tasksCopy.splice(taskIndex,1);
+      setTasks(tasksCopy);
+    }
   }
 
   return (
@@ -61,7 +89,7 @@ export function TaskList() {
                 <p>{task.title}</p>
               </div>
 
-              <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
+              <button type="button" data-testid="remove-task-button" onClick={() => handleClickRemoveTaskButton(task.id)}>
                 <FiTrash size={16}/>
               </button>
             </li>
