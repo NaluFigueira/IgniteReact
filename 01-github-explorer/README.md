@@ -10,7 +10,13 @@ yarn
 
 npm install
 ```
-<p>Open the React app by opening index.html from dist folder.</p>
+<p>Open the React app by running:</p>
+
+```
+yarn dev
+```
+
+
 
 ## :rocket: Technologies
 
@@ -20,6 +26,7 @@ This project was developed with the following technologies:
 -  [Babel](https://babeljs.io/)
 -  [Webpack](https://webpack.js.org/)
 -  [Sass](https://sass-lang.com/)
+-  [Typescript](https://www.typescriptlang.org/)
 
 ## :pencil: Notes
 
@@ -75,7 +82,7 @@ This project was developed with the following technologies:
   </li>
 
   <li>
-    <strong>Installing Typescript</strong>
+    Installing Typescript
     
     //Install dependency
     yarn add typescript -D
