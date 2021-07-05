@@ -17,7 +17,7 @@ npm install
 <p>Open the React app by running:</p>
 
 ```
-yarn dev
+yarn start
 ```
 
 
