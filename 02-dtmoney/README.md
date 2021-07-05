@@ -27,8 +27,9 @@ yarn dev
 This project was developed with the following technologies:
 
 -  [ReactJS](https://reactjs.org/)
--  [create-react-app](https://create-react-app.dev/)
 -  [Typescript](https://www.typescriptlang.org/)
+-  [create-react-app](https://create-react-app.dev/)
+-  [styled-components](https://styled-components.com/)
 
 ## :pencil: Notes
 
@@ -59,6 +60,14 @@ This project was developed with the following technologies:
     <strong>Eject script</strong>
     <p>
       The purpose of the eject script is to eject the webpack and babel configurations from the react-scripts library folder, that way you can change them if you want. However, this action is irreversible (unless you're using version control) and you'll need to take care of updating each library manually.
+    </p>
+  </li>
+  <li>
+    <strong>styled-components</strong>
+    <p>
+      Library that allows creation of styled components in React. 
+      The main advantage is that each styled component has a random class name, which means that the styling isn't shared globally across the project's components.
+      Also, the library supports style nesting, use of props for each component and use of variables.
     </p>
   </li>
 </ul>
