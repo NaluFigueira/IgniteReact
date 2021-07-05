@@ -70,4 +70,14 @@ This project was developed with the following technologies:
       Also, the library supports style nesting, use of props for each component and use of variables.
     </p>
   </li>
+  <li>
+    <strong>Font-size</strong>
+    <ul>
+      <li>The project is using 1rem = 16px as the standard font size.</li>
+      <li>
+        To be more responsive, the project avoids using pixel measures, 
+        and prefers percentage or rem in size calculations.
+      </li>
+    </ul>
+  </li>
 </ul>
