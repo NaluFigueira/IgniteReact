@@ -80,4 +80,25 @@ This project was developed with the following technologies:
       </li>
     </ul>
   </li>
+  <li>
+    <strong>Variables in styled-components</strong>
+    <p>To use variables in styled-components, just add the following code in your global style:<p>
+    
+    :root {
+        --red: #E52E4D;
+        --blue: #5429CC;
+        
+        --blue-light: #6933FF;
+        
+        --text-title: #363F5F;
+        --text-body: #969CB3;
+
+        --background: #F0F2F5;
+        --shape: #FFFFFF;
+    }
+  </li>
+  <li>
+    <strong>Filter property in CSS</strong>
+    <p>The filter property defines visual effects like blur and saturation to an element. More details <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">here</a>.<p>
+  </li>
 </ul>
