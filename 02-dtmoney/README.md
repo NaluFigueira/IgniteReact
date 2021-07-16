@@ -30,6 +30,8 @@ This project was developed with the following technologies:
 -  [Typescript](https://www.typescriptlang.org/)
 -  [create-react-app](https://create-react-app.dev/)
 -  [styled-components](https://styled-components.com/)
+-  [MirageJS](https://miragejs.com/)
+-  [axios](https://github.com/axios/axios)
 
 ## :pencil: Notes
 
@@ -100,5 +102,21 @@ This project was developed with the following technologies:
   <li>
     <strong>Filter property in CSS</strong>
     <p>The filter property defines visual effects like blur and saturation to an element. More details <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp">here</a>.<p>
+  </li>
+  <li>
+    <strong>Fake api:</strong>
+    <p>Tools to create the front-end of an application without depending on your back-end:</p>
+    <ul>
+      <li>
+        <a href="https://www.npmjs.com/package/json-server">json-server</a>
+      </li>
+      <li>
+        <a href="https://miragejs.com/">MirageJS</a>
+      </li>
+      <li>
+        <a href="https://mswjs.io/">MSW</a>
+      </li>
+    </ul>
+    <p>This project uses MirageJS.</p>
   </li>
 </ul>
