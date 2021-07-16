@@ -32,6 +32,7 @@ This project was developed with the following technologies:
 -  [styled-components](https://styled-components.com/)
 -  [MirageJS](https://miragejs.com/)
 -  [axios](https://github.com/axios/axios)
+-  [react-modal](https://github.com/reactjs/react-modal)
 
 ## :pencil: Notes
 
