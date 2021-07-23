@@ -1,12 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container, StyledTableRow } from "./styles";
 
+interface Transaction {
+    id: number,
+    title: string,
+    amount: number,
+    type: string,
+    category: string,
+    createdAt: string,
+}
+
 export function TransactionsTable() {
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+
     useEffect(() => {
         api.get('/transactions')
-            .then((response) => console.log(response.data))
+            .then((response) => setTransactions(response.data.transactions))
     },[]);
+
+    function formatAmount(amount: number) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(amount);
+    }
+    
+    function formatTimeStamp(timeStamp: string) {
+        const date = new Date(timeStamp);
+        return new Intl.DateTimeFormat('pt-BR').format(date);
+    }
 
     return(
         <Container>
@@ -21,30 +44,20 @@ export function TransactionsTable() {
                 </thead>
 
                 <tbody>
-                    <StyledTableRow isDeposit>
-                        <td>Website development</td>
-                        <td>R$ 12.800</td>
-                        <td>Development</td>
-                        <td>20/02/2021</td>
-                    </StyledTableRow>
-                    <StyledTableRow isWithdraw>
-                        <td>Rent</td>
-                        <td>- R$ 1.100</td>
-                        <td>Home</td>
-                        <td>17/02/2021</td>
-                    </StyledTableRow>
-                    <StyledTableRow isDeposit>
-                        <td>Website development</td>
-                        <td>R$ 12.800</td>
-                        <td>Development</td>
-                        <td>20/02/2021</td>
-                    </StyledTableRow>
-                    <StyledTableRow isDeposit>
-                        <td>Website development</td>
-                        <td>R$ 12.800</td>
-                        <td>Development</td>
-                        <td>20/02/2021</td>
-                    </StyledTableRow>
+                    {
+                        transactions.map(transaction => (
+                            <StyledTableRow 
+                                key={transaction.id}
+                                isDeposit={transaction.type === 'deposit'}
+                                isWithdraw={transaction.type === 'withdraw'}
+                            >
+                                <td>{transaction.title}</td>
+                                <td>{formatAmount(transaction.amount)}</td>
+                                <td>{transaction.category}</td>
+                                <td>{formatTimeStamp(transaction.createdAt)}</td>
+                            </StyledTableRow>
+                        ))
+                    }
                 </tbody>
             </table>
         </Container>
