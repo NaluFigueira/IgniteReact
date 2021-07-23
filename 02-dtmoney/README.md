@@ -33,6 +33,7 @@ This project was developed with the following technologies:
 -  [MirageJS](https://miragejs.com/)
 -  [axios](https://github.com/axios/axios)
 -  [react-modal](https://github.com/reactjs/react-modal)
+-  [polished](https://polished.js.org/)
 
 ## :pencil: Notes
 
@@ -119,5 +120,14 @@ This project was developed with the following technologies:
       </li>
     </ul>
     <p>This project uses MirageJS.</p>
+  </li>
+  <li>
+    <strong>Polished:</strong>
+    <p>Polished is a toolset for writing styles in JS, it's main purpose in this project is to give a better treatment to colors.</p>
+  </li>
+  <li>
+    <strong>Intl:</strong>
+    <p style="font-style: italic">
+    According to MDN Web Docs: "ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting".</p>
   </li>
 </ul>
