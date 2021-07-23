@@ -130,4 +130,29 @@ This project was developed with the following technologies:
     <p style="font-style: italic">
     According to MDN Web Docs: "ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting".</p>
   </li>
+  <li>
+    <strong>Context:</strong>
+    <p>In order to share an information between multiple components, one of the possibilities is to use React's context API.</p>
+    <p>To do that, first you need to create a context as follows:</p>
+
+
+  </li>
 </ul>
+
+  ```js
+    export const YourContext = createContext<YourContextType>({} as YourContextType);
+  ```
+
+<p>And then, to use your context, just use it's provider around the desired components, passing the initial value you desire</p>
+
+```jsx
+    <YourContext.Provider value={{}}>
+        {/*Your components here... */}
+    </YourContext.Provider>
+  ```
+
+<p>And, at last, call the useContext hook to use the context data inside your components</p>
+
+```js
+    const contextData = useContext(YourContext);
+  ```
