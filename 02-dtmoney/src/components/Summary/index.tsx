@@ -6,7 +6,31 @@ import { TransactionsContext } from '../../TransactionsContext';
 import { Container, InfoContainer } from "./styles";
 
 export function Summary() {
-    const {transactions} = useContext(TransactionsContext);
+    const { transactions } = useContext( TransactionsContext );
+
+    const summary = transactions.reduce((accumulator, transaction) => {
+        if(transaction.type === "deposit") {
+            accumulator.totalDeposits += transaction.amount;
+            accumulator.totalTransactions += transaction.amount;
+        } else {
+            accumulator.totalWithdraws += transaction.amount;
+            accumulator.totalTransactions -= transaction.amount;
+        }
+
+
+        return accumulator;
+    }, {
+        totalDeposits: 0,
+        totalWithdraws: 0,
+        totalTransactions: 0,
+    });
+
+    function formatAmount(amount: number) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(amount);
+    }
 
     return(
         <Container>
@@ -15,21 +39,21 @@ export function Summary() {
                     <p>Incomes</p>
                     <img src={incomeImg} alt="Incomes" />
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>{formatAmount(summary.totalDeposits)}</strong>
             </InfoContainer>
             <InfoContainer>
                 <header>
                     <p>Outcomes</p>
                     <img src={outcomeImg} alt="Outcomes" />
                 </header>
-                <strong>- R$500,00</strong>
+                <strong>- {formatAmount(summary.totalWithdraws)}</strong>
             </InfoContainer>
             <InfoContainer highlightBackground>
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="Total" />
                 </header>
-                <strong>R$500,00</strong>
+                <strong>{formatAmount(summary.totalTransactions)}</strong>
             </InfoContainer>
         </Container>
     );
