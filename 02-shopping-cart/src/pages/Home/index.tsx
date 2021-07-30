@@ -5,6 +5,7 @@ import { ProductList } from './styles';
 import { api } from '../../services/api';
 import { formatPrice } from '../../util/format';
 import { useCart } from '../../hooks/useCart';
+import { toast } from 'react-toastify';
 
 interface Product {
   id: number;
@@ -37,10 +38,10 @@ const Home = (): JSX.Element => {
         const formattedProducts = response.data.map(product => ({
           ...product,
           priceFormatted: formatPrice(product.price)
-        }))
+        }));
         setProducts(formattedProducts);
       } catch (error) {
-        console.log(error);
+        toast.error('Ocorreu um erro ao buscar nossos produtos. Tente novamente mais tarde.');
       }
     }
 
