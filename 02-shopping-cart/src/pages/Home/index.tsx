@@ -26,11 +26,7 @@ const Home = (): JSX.Element => {
   const { addProduct, cart } = useCart();
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    if(sumAmount[product.id]) {
-      sumAmount[product.id]++;
-    } else {
-      sumAmount[product.id] = 1;
-    }
+    sumAmount[product.id] = product.amount;
     return sumAmount;
   }, {} as CartItemsAmount)
 
@@ -62,7 +58,7 @@ const Home = (): JSX.Element => {
           <li key={product.id}>
             <img src={product.image} alt={product.title} />
             <strong>{product.title}</strong>
-            <span>R$ {product.priceFormatted}</span>
+            <span>{product.priceFormatted}</span>
             <button
               type="button"
               data-testid="add-product-button"

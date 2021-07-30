@@ -7,7 +7,19 @@ import { Container, Cart } from './styles';
 import { useCart } from '../../hooks/useCart';
 
 const Header = (): JSX.Element => {
-  const { getCartSize } = useCart();
+  const { cart } = useCart();
+  
+  
+  const getCartSize = ():number => {
+    let productsInCart: number[] = [];
+    cart.forEach((product) => {
+      if(!productsInCart.includes(product.id)) {
+        productsInCart.push(product.id);
+      }
+    });
+    return productsInCart.length;
+  };
+
   const cartSize = getCartSize();
   
   return (
