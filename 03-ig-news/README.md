@@ -57,4 +57,8 @@ This project was developed with the following technologies:
     <strong>document.tsx</strong>
     <p>This component will be rendered only once, at the start of the application. It works similarly to the index.html in the public folder of a create-react-app project.</p>
   </li>
+  <li>
+    <strong>Images in Next.js</strong>
+    <p>Images in Next.js projects should be in an images folder inside public folder.</p>
+  </li>
 </ul>
