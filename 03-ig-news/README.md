@@ -13,10 +13,10 @@ yarn
 
 npm install
 ```
-<p>Open the React app by running:</p>
+<p>Open the Next.js app by running:</p>
 
 ```
-yarn start
+yarn dev
 ```
 
 
@@ -39,7 +39,22 @@ This project was developed with the following technologies:
   <li>
     <strong>Advantages of using Next.js</strong>
     <p>
-      The main advantage of using Next.js is SEO optimization that enables the browsers to collect information about Reacts components without having Javascript enabled.
+      The main advantage of using Next.js is SEO optimization that enables the browsers to collect information about Reacts components without having Javascript enabled. Also, Next.js has built-in SASS
+      support and file-system routing.
     </p>
+  </li>
+  <li>
+    <strong>Creating Next.js app</strong>
+    
+      yarn create next-app ignews
+
+  </li>
+  <li>
+    <strong>_app.tsx</strong>
+    <p>The auto created component MyApp is a component that will always be around every component in the application. It works similarly to the route provider in the React Router Dom library.</p>
+  </li>
+  <li>
+    <strong>document.tsx</strong>
+    <p>This component will be rendered only once, at the start of the application. It works similarly to the index.html in the public folder of a create-react-app project.</p>
   </li>
 </ul>
