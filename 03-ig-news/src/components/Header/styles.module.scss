@@ -6,6 +6,7 @@
 .headerContent {
     max-width: 1120px;
     height: 5rem;
+    margin: 0 auto;
     padding: 0 2rem;
 
     display: flex;
@@ -49,5 +50,9 @@
                 background: var(--yellow-500);
             }
         }
+    }
+
+    button {
+        margin-left: auto;
     }
 }
