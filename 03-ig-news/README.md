@@ -61,7 +61,11 @@ This project was developed with the following technologies:
     <p>Images in Next.js projects should be in an images folder inside public folder.</p>
   </li>
   <li>
-    <strong>API in Next.js</strong>
-    <p>For more important API calls, specially the ones that contains important information for search engines, it's recommended to call the API in Next.js SSR. To do that, you need to add in your component a getServerSideProps function. That function will return to the component the api call info.</p>
+    <strong>SSR API call</strong>
+    <p>For more important API calls, specially the ones that contains important information for search engines, it's recommended to call the API in Next.js SSR. To do that, you need to add in your component a getServerSideProps function. That function will return to the component the api call info. <strong>The API calls inside the SSR require more processing, so be cautious to use it.</strong></p>
+  </li>
+  <li>
+    <strong>SSG API call</strong>
+    <p>Static Site Generation (SSG) allows Next.js to save a HTML copy of the rendered application after its first render. That way, the SSR won't be called again unnecessarily in a period of time. To do that you need to change the getServerSideProps function to getStaticProps, and add to your returned object the property "revalidate" the amount of time in minutes that the copy should be updated again.</p>
   </li>
 </ul>
