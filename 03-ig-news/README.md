@@ -28,8 +28,7 @@ This project was developed with the following technologies:
 -  [ReactJS](https://reactjs.org/)
 -  [Typescript](https://www.typescriptlang.org/)
 -  [Next.js](https://nextjs.org/)
--  [styled-components](https://styled-components.com/)
--  [axios](https://github.com/axios/axios)
+-  [Stripe](https://stripe.com/br)
 
 ## :pencil: Notes
 
@@ -39,7 +38,7 @@ This project was developed with the following technologies:
   <li>
     <strong>Advantages of using Next.js</strong>
     <p>
-      The main advantage of using Next.js is SEO optimization that enables the browsers to collect information about Reacts components without having Javascript enabled. Also, Next.js has built-in SASS
+      The main advantage of using Next.js is SEO that enables the browsers to collect information about Reacts components without having Javascript enabled. Also, Next.js has built-in SASS
       support and file-system routing.
     </p>
   </li>
@@ -60,5 +59,9 @@ This project was developed with the following technologies:
   <li>
     <strong>Images in Next.js</strong>
     <p>Images in Next.js projects should be in an images folder inside public folder.</p>
+  </li>
+  <li>
+    <strong>API in Next.js</strong>
+    <p>For more important API calls, specially the ones that contains important information for search engines, it's recommended to call the API in Next.js SSR. To do that, you need to add in your component a getServerSideProps function. That function will return to the component the api call info.</p>
   </li>
 </ul>
