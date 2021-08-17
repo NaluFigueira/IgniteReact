@@ -29,6 +29,7 @@ This project was developed with the following technologies:
 -  [Typescript](https://www.typescriptlang.org/)
 -  [Next.js](https://nextjs.org/)
 -  [Stripe](https://stripe.com/br)
+-  [next-auth](https://next-auth.js.org/)
 
 ## :pencil: Notes
 
@@ -67,5 +68,9 @@ This project was developed with the following technologies:
   <li>
     <strong>SSG API call</strong>
     <p>Static Site Generation (SSG) allows Next.js to save a HTML copy of the rendered application after its first render. That way, the SSR won't be called again unnecessarily in a period of time. To do that you need to change the getServerSideProps function to getStaticProps, and add to your returned object the property "revalidate" the amount of time in minutes that the copy should be updated again.</p>
+  </li>
+  <li>
+    <strong>API folder</strong>
+    <p>Every file in pages/api folder becomes an api route. Since it's inside the server layer of Next.js, these routes are not reachable by the client, maintaining it's data safe.</p>
   </li>
 </ul>
