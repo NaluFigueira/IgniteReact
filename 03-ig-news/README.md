@@ -73,4 +73,35 @@ This project was developed with the following technologies:
     <strong>API folder</strong>
     <p>Every file in pages/api folder becomes an api route. Since it's inside the server layer of Next.js, these routes are not reachable by the client, maintaining it's data safe.</p>
   </li>
+  <li>
+    <strong>Run Stripe cli</strong>
+    
+    stripe listen --forward-to localhost:3000/api/webhooks
+
+  </li>
+  <li>
+    <strong>CMS (Content Management System)</strong>
+    <ul>
+      <li>
+        Not Headless
+        <ul>
+          <li> Wordpress (has free plans) </li>
+        </ul>
+      </li>
+      <li>
+        Headless (Dashboard + HTTP API, GraphQL, SDK)
+        <ul>
+          <li>Strapi (small projects only)</li>
+          <li>Keystone (small projects only)</li>
+          <li>Ghost (blog)</li>
+          <li>GraphCMS (payed, smaller projects)</li>
+          <li>Prismic CMS (payed, smaller projects)</li>
+          <li>Contentful (payed, big projects)</li>
+          <li>Shopify (e-commerce)</li>
+          <li>Saleor (e-commerce)</li>
+        </ul>
+      </li>
+    </ul>
+
+  </li>
 </ul>
