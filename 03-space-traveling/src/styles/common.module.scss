@@ -1,1 +1,10 @@
-// TODO
+.mainContainer {
+  max-width: 80vw;
+  margin-left: 28vw;
+}
+
+@media (max-width: 720px) {
+  .mainContainer {
+    margin: auto !important;
+  }
+}
