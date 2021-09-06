@@ -1,8 +1,16 @@
-// TODO
 .postContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 48px;
+  cursor: pointer;
+
+  &:hover {
+    .postTitle,
+    .postSubtitle {
+      text-decoration: underline;
+    }
+  }
 
   &:last-child {
     margin: unset !important;
