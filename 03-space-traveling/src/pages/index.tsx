@@ -1,4 +1,7 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Header from '../components/Header';
 
 import { getPrismicClient } from '../services/prismic';
 
@@ -24,9 +27,21 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-// export default function Home() {
-//   // TODO
-// }
+const Home: React.FC = () => {
+  const { asPath } = useRouter();
+
+  return (
+    <>
+      <Head>
+        <title>Home | Space Traveling</title>
+      </Head>
+
+      <Header currentPath={asPath} />
+    </>
+  );
+};
+
+export default Home;
 
 // export const getStaticProps = async () => {
 //   // const prismic = getPrismicClient();

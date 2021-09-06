@@ -1,1 +1,23 @@
-// TODO
+.headerContainer {
+  width: 80vw;
+  padding: 40px 0px;
+  margin-left: 16vw;
+
+  img {
+    margin-left: 12vw;
+  }
+}
+
+.headerContainer.home {
+  margin-top: 40px;
+}
+
+@media (max-width: 720px) {
+  .headerContainer {
+    margin: auto;
+
+    img {
+      margin: auto;
+    }
+  }
+}
