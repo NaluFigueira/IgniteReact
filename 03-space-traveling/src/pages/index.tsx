@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GetStaticPropsResult } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import Prismic from '@prismicio/client';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 import ApiSearchResponse from '@prismicio/client/types/ApiSearchResponse';
@@ -14,7 +15,7 @@ import styles from './home.module.scss';
 import { formatReceivedDateString } from '../utils/date';
 
 interface Post {
-  uid?: string;
+  slug?: string;
   first_publication_date: string | null;
   data: {
     title: string;
@@ -32,9 +33,9 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-const formatResponseResult = (results: Post[]): Post[] => {
+const formatResponseResult = (results): Post[] => {
   return results.map(post => ({
-    uid: post.uid,
+    slug: post.uid,
     first_publication_date: formatReceivedDateString(
       post.first_publication_date
     ),
@@ -69,20 +70,22 @@ const Home: React.FC<HomeProps> = ({ postsPagination }) => {
       <Header currentPath={currentPath} />
 
       {posts.map(post => (
-        <div className={styles.postContainer} key={post.uid}>
-          <span className={styles.postTitle}>{post.data.title}</span>
-          <span className={styles.postSubtitle}>{post.data.subtitle}</span>
-          <div>
+        <Link href={`/post/${post.slug}`} key={post.slug}>
+          <div className={styles.postContainer}>
+            <span className={styles.postTitle}>{post.data.title}</span>
+            <span className={styles.postSubtitle}>{post.data.subtitle}</span>
             <div>
-              <FiCalendar />
-              <span>{post.first_publication_date}</span>
-            </div>
-            <div>
-              <FiUser />
-              <span>{post.data.author}</span>
+              <div>
+                <FiCalendar />
+                <span>{post.first_publication_date}</span>
+              </div>
+              <div>
+                <FiUser />
+                <span>{post.data.author}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
 
       {nextPageUrl && (
