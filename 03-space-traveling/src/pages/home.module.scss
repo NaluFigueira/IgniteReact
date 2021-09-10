@@ -52,3 +52,24 @@
   margin-bottom: 24px;
   font-weight: 400;
 }
+
+.loadMoreButton {
+  position: relative;
+  background-color: transparent;
+  color: var(--highlight);
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+
+  &:hover {
+    &::after {
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: var(--highlight);
+    }
+  }
+}
