@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
 
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
@@ -60,6 +61,7 @@ const getReadingTime = (post: Post): number => {
 };
 
 const Post: React.FC<PostProps> = ({ post }) => {
+  const router = useRouter();
   const formattedPost = getFormattedPost(post);
 
   return (
@@ -72,44 +74,50 @@ const Post: React.FC<PostProps> = ({ post }) => {
         <Header currentPath="post" />
       </div>
 
-      <img
-        className={styles.postBanner}
-        src={formattedPost.data.banner.url}
-        alt="post-banner"
-      />
+      {router.isFallback ? (
+        <p className={styles.loadingMessage}> Carregando... </p>
+      ) : (
+        <>
+          <img
+            className={styles.postBanner}
+            src={formattedPost.data.banner.url}
+            alt="post-banner"
+          />
 
-      <div className={commonStyles.mainContainer}>
-        <main className={styles.postPageContainer}>
-          <article>
-            <h1>{formattedPost.data.title}</h1>
-            <div className={commonStyles.postInformation}>
-              <div>
-                <FiCalendar />
-                <span>{formattedPost.first_publication_date}</span>
-              </div>
-              <div>
-                <FiUser />
-                <span>{formattedPost.data.author}</span>
-              </div>
-              <div>
-                <FiClock />
-                <span>{getReadingTime(formattedPost)} min</span>
-              </div>
-            </div>
-            {formattedPost.data.content.map(section => (
-              <div
-                className={styles.postContentContainer}
-                key={section.heading}
-              >
-                <h2>{section.heading}</h2>
-                {section.body.map((body, index) => (
-                  <p key={`${new Date().getTime() + index}`}>{body.text}</p>
+          <div className={commonStyles.mainContainer}>
+            <main className={styles.postPageContainer}>
+              <article>
+                <h1>{formattedPost.data.title}</h1>
+                <div className={commonStyles.postInformation}>
+                  <div>
+                    <FiCalendar />
+                    <span>{formattedPost.first_publication_date}</span>
+                  </div>
+                  <div>
+                    <FiUser />
+                    <span>{formattedPost.data.author}</span>
+                  </div>
+                  <div>
+                    <FiClock />
+                    <span>{getReadingTime(formattedPost)} min</span>
+                  </div>
+                </div>
+                {formattedPost.data.content.map(section => (
+                  <div
+                    className={styles.postContentContainer}
+                    key={section.heading}
+                  >
+                    <h2>{section.heading}</h2>
+                    {section.body.map((body, index) => (
+                      <p key={`${new Date().getTime() + index}`}>{body.text}</p>
+                    ))}
+                  </div>
                 ))}
-              </div>
-            ))}
-          </article>
-        </main>
-      </div>
+              </article>
+            </main>
+          </div>
+        </>
+      )}
     </>
   );
 };
@@ -132,7 +140,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         slug: post.uid,
       },
     })),
-    fallback: 'blocking',
+    fallback: true,
   };
 };
 
