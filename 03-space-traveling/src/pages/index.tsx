@@ -49,7 +49,6 @@ const Home: React.FC<HomeProps> = ({ postsPagination }) => {
   const [nextPageUrl, setNextPageUrl] = useState<string | null>(
     postsPagination.next_page
   );
-  const [currentPath, setCurrentPath] = useState('/');
 
   const getNextPagePosts = (): void => {
     fetch(nextPageUrl)
@@ -67,14 +66,14 @@ const Home: React.FC<HomeProps> = ({ postsPagination }) => {
         <title>Home | Space Traveling</title>
       </Head>
 
-      <Header currentPath={currentPath} />
+      <Header currentPath="/" />
 
       {posts.map(post => (
         <Link href={`/post/${post.slug}`} key={post.slug}>
           <div className={styles.postContainer}>
             <span className={styles.postTitle}>{post.data.title}</span>
             <span className={styles.postSubtitle}>{post.data.subtitle}</span>
-            <div>
+            <div className={commonStyles.postInformation}>
               <div>
                 <FiCalendar />
                 <span>{post.first_publication_date}</span>

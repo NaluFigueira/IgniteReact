@@ -8,3 +8,26 @@
     margin: auto !important;
   }
 }
+
+.postInformation {
+  display: flex;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    span,
+    svg {
+      font-size: 0.875rem;
+      color: var(--info);
+    }
+
+    svg {
+      margin-right: 8px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}
