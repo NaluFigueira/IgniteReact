@@ -11,7 +11,7 @@
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
-![App Preview](https://github.com/NaluFigueira/IgniteReact/tree/main/03-space-traveling/SpaceTravelingPreview.gif)
+![App Preview](https://github.com/NaluFigueira/IgniteReact/blob/main/03-space-traveling/SpaceTravelingPreview.gif)
 
 ## :bulb: Main Features
 
