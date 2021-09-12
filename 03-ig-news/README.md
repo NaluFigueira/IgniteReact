@@ -29,6 +29,7 @@ This project was developed with the following technologies:
 - [Next.js](https://nextjs.org/)
 - [Stripe](https://stripe.com/br)
 - [next-auth](https://next-auth.js.org/)
+- [Prismic](https://prismic.io/)
 
 ## :pencil: Notes
 
