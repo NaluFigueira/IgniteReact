@@ -17,6 +17,7 @@
 
 This project includes mainly the following features:
 
+- Preview unplished post changes.
 - View and load tech blog posts.
 - Comment in posts using a github account.
 

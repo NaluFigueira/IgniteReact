@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
 
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
@@ -36,6 +37,7 @@ interface Post {
 
 interface PostProps {
   post: Post;
+  preview: boolean;
 }
 
 const getFormattedPost = (response): Post => {
@@ -61,7 +63,7 @@ const getReadingTime = (post: Post): number => {
   return Math.ceil(numberOfPostWords / 200);
 };
 
-const Post: React.FC<PostProps> = ({ post }) => {
+const Post: React.FC<PostProps> = ({ post, preview }) => {
   const router = useRouter();
   const formattedPost = getFormattedPost(post);
   useUtterances('comments');
@@ -117,6 +119,13 @@ const Post: React.FC<PostProps> = ({ post }) => {
                 ))}
               </article>
               <div id="comments" />
+              {preview && (
+                <aside>
+                  <Link href="/api/exit-preview">
+                    <a>Sair do modo Preview</a>
+                  </Link>
+                </aside>
+              )}
             </main>
           </div>
         </>
@@ -147,14 +156,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async context => {
-  const { slug } = context.params;
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  const { slug } = params;
   const prismic = getPrismicClient();
-  const response = await prismic.getByUID('posts', String(slug), {});
+  const response = await prismic.getByUID('posts', String(slug), {
+    ref: previewData?.ref ?? null,
+  });
 
   return {
     props: {
       post: response,
+      preview,
     },
     redirect: 60 * 30,
   };
