@@ -15,6 +15,7 @@ import styles from './post.module.scss';
 
 import { formatReceivedDateString } from '../../utils/date';
 import { getNumberOfWords } from '../../utils/string';
+import { useUtterances } from '../../hooks/useUtterances';
 
 interface Post {
   first_publication_date: string | null;
@@ -63,6 +64,7 @@ const getReadingTime = (post: Post): number => {
 const Post: React.FC<PostProps> = ({ post }) => {
   const router = useRouter();
   const formattedPost = getFormattedPost(post);
+  useUtterances('comments');
 
   return (
     <>
@@ -114,6 +116,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
                   </div>
                 ))}
               </article>
+              <div id="comments" />
             </main>
           </div>
         </>

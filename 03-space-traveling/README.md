@@ -18,6 +18,7 @@
 This project includes mainly the following features:
 
 - View and load tech blog posts.
+- Comment in posts using a github account.
 
 ## :rocket: Technologies
 
@@ -29,6 +30,7 @@ This project was developed with the following technologies:
 - [Prismic](https://prismic.io/)
 - [date-fns](https://date-fns.org/)
 - [react-icons](https://react-icons.github.io/react-icons/)
+- [utterances](https://utteranc.es/)
 
 ## :information_source: How To Use
 
