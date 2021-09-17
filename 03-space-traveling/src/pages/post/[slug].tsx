@@ -19,6 +19,7 @@ import { getNumberOfWords } from '../../utils/string';
 import { useUtterances } from '../../hooks/useUtterances';
 
 interface Post {
+  slugs?: string[];
   first_publication_date: string | null;
   data: {
     title: string;
@@ -38,6 +39,8 @@ interface Post {
 interface PostProps {
   post: Post;
   preview: boolean;
+  nextPost: Post | null;
+  previousPost: Post | null;
 }
 
 const getFormattedPost = (response): Post => {
@@ -63,7 +66,12 @@ const getReadingTime = (post: Post): number => {
   return Math.ceil(numberOfPostWords / 200);
 };
 
-const Post: React.FC<PostProps> = ({ post, preview }) => {
+const Post: React.FC<PostProps> = ({
+  post,
+  preview,
+  previousPost,
+  nextPost,
+}) => {
   const router = useRouter();
   const formattedPost = getFormattedPost(post);
   useUtterances('comments');
@@ -118,7 +126,26 @@ const Post: React.FC<PostProps> = ({ post, preview }) => {
                   </div>
                 ))}
               </article>
+              <div className={styles.postNavigationContainer}>
+                {previousPost && (
+                  <div className={styles.previousPostContainer}>
+                    <span>{previousPost.data.title}</span>
+                    <Link href={`/post/${previousPost.slugs[0]}`}>
+                      <a>Post anterior</a>
+                    </Link>
+                  </div>
+                )}
+                {nextPost && (
+                  <div className={styles.nextPostContainer}>
+                    <span>{nextPost.data.title}</span>
+                    <Link href={`/post/${nextPost.slugs[0]}`}>
+                      <a>Próximo post</a>
+                    </Link>
+                  </div>
+                )}
+              </div>
               <div id="comments" />
+
               {preview && (
                 <aside>
                   <Link href="/api/exit-preview">
@@ -163,14 +190,38 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const { slug } = params;
   const prismic = getPrismicClient();
-  const response = await prismic.getByUID('posts', String(slug), {
+  const post = await prismic.getByUID('posts', String(slug), {
     ref: previewData?.ref ?? null,
   });
 
+  const previousPostResponse = await prismic.query(
+    [Prismic.predicates.at('document.type', 'posts')],
+    {
+      pageSize: 1,
+      after: `${post.id}`,
+      orderings: '[document.first_publication_date desc]',
+    }
+  );
+
+  const previousPost = previousPostResponse.results[0];
+
+  const nextPostResponse = await prismic.query(
+    [Prismic.predicates.at('document.type', 'posts')],
+    {
+      pageSize: 1,
+      after: `${post.id}`,
+      orderings: '[document.first_publication_date]',
+    }
+  );
+
+  const nextPost = nextPostResponse.results[0];
+
   return {
     props: {
-      post: response,
+      post,
       preview,
+      previousPost: previousPost || null,
+      nextPost: nextPost || null,
     },
     redirect: 60 * 30,
   };
