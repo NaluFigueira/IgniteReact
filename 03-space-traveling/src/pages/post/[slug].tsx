@@ -19,8 +19,9 @@ import { getNumberOfWords } from '../../utils/string';
 import { useUtterances } from '../../hooks/useUtterances';
 
 interface Post {
-  slugs?: string[];
-  first_publication_date: string | null;
+  uid?: string;
+  first_publication_date: string;
+  last_publication_date: string;
   data: {
     title: string;
     banner: {
@@ -47,6 +48,10 @@ const getFormattedPost = (response): Post => {
   return {
     first_publication_date: formatReceivedDateString(
       response.first_publication_date
+    ),
+    last_publication_date: formatReceivedDateString(
+      response.last_publication_date,
+      "dd MMM yyyy 'às' HH:mm"
     ),
     data: response.data,
   };
@@ -114,6 +119,9 @@ const Post: React.FC<PostProps> = ({
                     <span>{getReadingTime(formattedPost)} min</span>
                   </div>
                 </div>
+                <span className={styles.lastUpdatedLabel}>
+                  * editado em {formattedPost.last_publication_date}
+                </span>
                 {formattedPost.data.content.map(section => (
                   <div
                     className={styles.postContentContainer}
@@ -130,7 +138,7 @@ const Post: React.FC<PostProps> = ({
                 {previousPost && (
                   <div className={styles.previousPostContainer}>
                     <span>{previousPost.data.title}</span>
-                    <Link href={`/post/${previousPost.slugs[0]}`}>
+                    <Link href={`/post/${previousPost.uid}`}>
                       <a>Post anterior</a>
                     </Link>
                   </div>
@@ -138,7 +146,7 @@ const Post: React.FC<PostProps> = ({
                 {nextPost && (
                   <div className={styles.nextPostContainer}>
                     <span>{nextPost.data.title}</span>
-                    <Link href={`/post/${nextPost.slugs[0]}`}>
+                    <Link href={`/post/${nextPost.uid}`}>
                       <a>Próximo post</a>
                     </Link>
                   </div>

@@ -60,8 +60,6 @@
 }
 
 .postNavigationContainer {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 5rem;
   margin-top: 3.75rem;
   padding-top: 3rem;
@@ -71,10 +69,12 @@
 
 .previousPostContainer,
 .nextPostContainer {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  max-width: 50%;
 
   span {
+    display: block;
     color: var(--heading);
     font-size: 1.125rem;
     font-weight: 400;
@@ -96,4 +96,15 @@
 
 .nextPostContainer {
   align-items: flex-end;
+  float: right;
+}
+
+.lastUpdatedLabel {
+  display: block;
+  margin-top: 1rem;
+
+  color: var(--info);
+  font-style: italic;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
