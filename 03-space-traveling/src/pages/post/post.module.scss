@@ -16,6 +16,25 @@
   div[id='comments'] {
     margin-top: 5rem;
   }
+
+  aside {
+    width: 100%;
+    background-color: var(--heading);
+
+    margin-top: 5rem;
+    border-radius: 4px;
+    padding: 18px 0px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: var(--background);
+      font-weight: 600;
+    }
+  }
 }
 
 .postContentContainer {
