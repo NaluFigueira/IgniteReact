@@ -74,3 +74,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 ```
+
+#### Chakra units system
+
+1 unit in chakra === 1/4 rem === 4 px
