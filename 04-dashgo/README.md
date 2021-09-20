@@ -75,6 +75,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 ```
 
-#### Chakra units system
+#### Chakra UI unit system
 
 1 unit in chakra === 1/4 rem === 4 px
+
+To insert directly a value in pixels, use brackets:
+
+```tsx
+<Flex
+  as="header"
+  w="100%"
+  maxWidth={1480}
+  h="20"
+  mx="auto"
+  mt="4"
+  px="6"
+  align="center"
+>
+  {/*In this case max width is given in pixels*/}
+</Flex>
+```
