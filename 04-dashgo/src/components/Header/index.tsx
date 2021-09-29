@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
 import { Logo } from "./Logo";
 import { NotificationsNav } from "./NotificationsNav";
@@ -6,6 +6,11 @@ import { Profile } from "./Profile";
 import { SearchBox } from "./SearchBox";
 
 export function Header() {
+  const isLargeResolution = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Flex
       as="header"
@@ -19,11 +24,11 @@ export function Header() {
     >
       <Logo />
 
-      <SearchBox />
+      {isLargeResolution && <SearchBox />}
 
-      <Flex align="center" ml="auto">
+      <Flex align="center" ml="">
         <NotificationsNav />
-        <Profile />
+        <Profile showUserNameAndEmail={isLargeResolution} />
       </Flex>
     </Flex>
   );
