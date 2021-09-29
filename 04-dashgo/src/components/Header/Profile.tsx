@@ -1,15 +1,21 @@
 import { Flex, Text, Box, Avatar } from "@chakra-ui/react";
 
-export function Profile() {
+interface ProfileProps {
+  showUserNameAndEmail: boolean;
+}
+
+export function Profile({ showUserNameAndEmail }: ProfileProps) {
   return (
     <Flex align="center">
-      <Box mr="4" textAlign="right">
-        <Text>Ana Figueira</Text>
+      {showUserNameAndEmail && (
+        <Box mr="4" textAlign="right">
+          <Text>Ana Figueira</Text>
 
-        <Text color="gray.300" fontSize="small">
-          anachfigueira@gmail.com
-        </Text>
-      </Box>
+          <Text color="gray.300" fontSize="small">
+            anachfigueira@gmail.com
+          </Text>
+        </Box>
+      )}
 
       <Avatar
         size="md"

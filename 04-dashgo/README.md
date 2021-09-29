@@ -95,3 +95,59 @@ To insert directly a value in pixels, use brackets:
   {/*In this case max width is given in pixels*/}
 </Flex>
 ```
+
+#### Chakra responsive layout tools
+
+- Array/Object of different measures based on screen size:
+
+```tsx
+<Box bg="red.200" w={[300, 400, 500]}>
+  This is a box
+</Box>
+//or
+<Box bg="red.200" w={{base: 300, sm: 400,  md: 500}}>
+  This is a box
+</Box>
+```
+
+- **useBreakpointValue** hook to use different values based on screen size:
+
+```tsx
+function Example() {
+  const variant = useBreakpointValue({ base: "outline", md: "solid" });
+
+  return (
+    <VStack align="flex-start">
+      <Text>Resize your window to see the button variant change</Text>
+      <Button colorScheme="teal" variant={variant}>
+        Button
+      </Button>
+    </VStack>
+  );
+}
+```
+
+- **useMediaQuery** hook to apply media queries:
+
+```tsx
+function Example() {
+  const [isLargerThanHD, isDisplayingInBrowser] = useMediaQuery([
+    "(min-width: 1920px)",
+    "(display-mode: browser)",
+  ]);
+
+  function determineText() {
+    if (isLargerThanHD) {
+      return `high resolution you got there ${
+        isDisplayingInBrowser ? "in your browser" : "on your screen"
+      }`;
+    }
+
+    return isDisplayingInBrowser
+      ? "rendering in a browser"
+      : "rendering on something else, e.g. PWA";
+  }
+
+  return <Text>{determineText()}</Text>;
+}
+```
