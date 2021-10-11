@@ -151,3 +151,10 @@ function Example() {
   return <Text>{determineText()}</Text>;
 }
 ```
+
+### Dealing with forms
+
+There are two alternatives to deal with forms in React:
+
+- **Controlled components**: uses a state for each input in the form.
+- **Uncontrolled components**: access input info only when needed, it's not stored in state. For this method, it's recommended to use **useRef** hook, or a library focused on form processing, for example Formik, React Hook Form, Unform.
